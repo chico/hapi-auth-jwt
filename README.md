@@ -39,13 +39,13 @@ var accounts = {
 
 var privateKey = 'BbZJjyoXAdr8BUZuiKKARWimKfrSmQ6fv8kZ7OFfc';
 
-// Use this token to build your request with the 'Authorization' header.  
+// Use this token to build your request with the 'Authorization' header.
 // Ex:
 //     Authorization: Bearer <token>
 var token = jwt.sign({ accountId: 123 }, privateKey);
 
 
-var validate = function (decodedToken, callback) {
+var validate = function (request, decodedToken, callback) {
 
     var error,
         credentials = accounts[decodedToken.accountId] || {};
